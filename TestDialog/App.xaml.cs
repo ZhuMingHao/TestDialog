@@ -82,7 +82,25 @@ namespace TestDialog
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
 
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs eventArgs = args as ProtocolActivatedEventArgs;
+                // Navigate to a view 
+                Frame rootFrame = Window.Current.Content as Frame;
+                if (rootFrame == null)
+                {
+                    rootFrame = new Frame();
+                    Window.Current.Content = rootFrame;
+                }
+                // assuming you wanna go to MainPage when activated via protocol
+                rootFrame.Navigate(typeof(MainPage), eventArgs);
+
+            }
+            Window.Current.Activate();
+        }
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
         /// without knowing whether the application will be terminated or resumed with the contents

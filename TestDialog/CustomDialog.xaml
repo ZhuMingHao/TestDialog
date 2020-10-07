@@ -9,19 +9,12 @@
     PrimaryButtonText="Button1"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
     SecondaryButtonText="Button2"
+    MaxWidth="1000"
     Style="{StaticResource TestDialog}"
+   
     mc:Ignorable="d">
-    <ContentDialog.Title>
-        <Grid HorizontalAlignment="Stretch">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Dialog Title..." />
-            <Button Grid.Column="1">
-                <SymbolIcon Symbol="Help" />
-            </Button>
-        </Grid>
-    </ContentDialog.Title>
-    <Grid />
+   
+    <Grid Height="600" Width="900">
+        
+    </Grid>
 </ContentDialog>

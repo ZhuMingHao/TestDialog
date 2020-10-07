@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,10 +29,33 @@ namespace TestDialog
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var folderPicker = new FolderPicker();
+            folderPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            folderPicker.FileTypeFilter.Add("*");
+            StorageFolder folder = await folderPicker.PickSingleFolderAsync();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             var dialog = new CustomDialog();
             dialog.ShowAsync();
+        }
+
+        private void StackPanel_PointerWheelChanged(object sender, PointerRoutedEventArgs e)
+        {
+
+        }
+
+        private void StackPanel_ManipulationStarting(object sender, ManipulationStartingRoutedEventArgs e)
+        {
+
+        }
+
+        private void StackPanel_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            var s =  e.Delta.Scale;
         }
     }
 }

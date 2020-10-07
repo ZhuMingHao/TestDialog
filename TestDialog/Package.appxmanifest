@@ -9,7 +9,7 @@
   <Identity
     Name="3d917ef5-7ca1-4a94-b40a-c48b68f785c8"
     Publisher="CN=v-zhumin"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="3d917ef5-7ca1-4a94-b40a-c48b68f785c8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -40,6 +40,11 @@
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="testapp"/>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
 
